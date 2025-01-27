@@ -1,0 +1,9 @@
+FROM bellsoft/liberica-openjdk-alpine
+COPY ./src /src
+RUN mkdir /docs
+VOLUME /docs
+CMD javadoc -sourcepath /src -d /docs -subpackages ru
+
+#После создания образа выполнить команду:
+#sudo docker run --name javadocCont -v /path/to/folder/on/host/docs/:/docs javadoc
+#Подставить свой путь для получения документации из контейнера
